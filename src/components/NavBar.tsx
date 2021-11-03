@@ -1,8 +1,9 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ColorValue } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import LearnPage from '../screens/LearnPage';
-import React from 'react';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { ColorValue } from "react-native";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import LearnPage from "../screens/LearnPage";
+import React from "react";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,19 +12,27 @@ const NavTabs = () => {
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={{
-        tabBarActiveTintColor: '#e91e63',
+        tabBarActiveTintColor: "#5553FF",
+        headerShown: false,
       }}
     >
       <Tab.Screen
         name="Feed"
         component={LearnPage}
         options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }:{
-            size?: number,
-            color?: ColorValue | number,
+          tabBarLabel: "Home",
+          tabBarIcon: ({
+            color,
+            size,
+          }: {
+            size?: number;
+            color?: ColorValue | number;
           }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="home-outline"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
@@ -31,31 +40,38 @@ const NavTabs = () => {
         name="Notifications"
         component={LearnPage}
         options={{
-          tabBarLabel: 'Updates',
-          tabBarIcon: ({ color, size }:{
-            size?: number,
-            color?: ColorValue | number,
-          }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
-          ),
-          tabBarBadge: 3,
+          tabBarLabel: "Explore",
+          tabBarIcon: ({
+            color,
+            size,
+          }: {
+            size?: number;
+            color?: ColorValue | number;
+          }) => <MaterialIcons name="search" color={color} size={size} />,
         }}
       />
       <Tab.Screen
         name="Profile"
         component={LearnPage}
         options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: ({ color, size }:{
-            size?: number,
-            color?: ColorValue | number,
+          tabBarLabel: "Account",
+          tabBarIcon: ({
+            color,
+            size,
+          }: {
+            size?: number;
+            color?: ColorValue | number;
           }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="account-circle-outline"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
     </Tab.Navigator>
   );
-}
+};
 
 export default NavTabs;

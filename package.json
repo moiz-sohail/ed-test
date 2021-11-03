@@ -10,11 +10,16 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@types/react-native-snap-carousel": "^3.8.5",
     "expo": "~43.0.0",
+    "expo-cli": "^4.12.11",
     "expo-status-bar": "~1.1.0",
+    "global": "^4.4.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.2",
+    "react-native-elements": "^3.4.2",
+    "react-native-snap-carousel": "^3.9.1",
     "react-native-web": "0.17.1",
     "tailwind-react-native-classnames": "^1.5.1"
   },

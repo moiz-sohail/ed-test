@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
   image: {
     width: ITEM_WIDTH,
     height: 100,
-    borderTopEndRadius: 8,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
   },
   header: {
     color: "#4C4C5C",

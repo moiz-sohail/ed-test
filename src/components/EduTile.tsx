@@ -3,23 +3,53 @@ import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
 import tw from "tailwind-react-native-classnames";
 
 export const SLIDER_WIDTH = Dimensions.get("window").width;
-export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.47);
+export const ITEM_WIDTH = 180;
 
-const EduTile = ({ item, index }) => {
+const eduBaseUrl = "https://www.educative.io";
+
+const EduTile = ({
+  item,
+  index,
+  isPath,
+}: {
+  item: any;
+  index: number;
+  isPath: boolean;
+}) => {
+  const headerStyle = {
+    ...styles.header,
+    color: isPath ? "#FAFAFA" : "#3D3D4E",
+  };
   return (
-    <View style={styles.cardStyle} key={index}>
-      <Image source={{ uri: item.imgUrl }} style={styles.image} />
+    <View
+      style={{
+        ...styles.cardStyle,
+        backgroundColor: isPath ? "#202033" : "white",
+      }}
+      key={index}
+    >
+      <Image
+        source={{ uri: eduBaseUrl + item.cover_image_serving_url }}
+        style={styles.image}
+      />
       <View style={tw`flex-row py-1`}>
-        <Text style={styles.header}>{item.title}</Text>
-        <Text style={styles.header}>{"Beginner"}</Text>
+        <Text style={headerStyle}>Course</Text>
+        <Text style={headerStyle}>{"Beginner"}</Text>
       </View>
-      <Text style={styles.body}>{item.body}</Text>
+      <Text
+        style={{
+          ...styles.body,
+          color: isPath ? "#FAFAFA" : "#3D3D4E",
+        }}
+        numberOfLines={3}
+      >
+        {item.title}
+      </Text>
     </View>
   );
 };
 const styles = StyleSheet.create({
   cardStyle: {
-    backgroundColor: "white",
     borderRadius: 10,
     width: ITEM_WIDTH,
     height: 201,
@@ -29,6 +59,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1,
     },
+    margin: 4,
     shadowOpacity: 0.29,
     shadowRadius: 3,
   },
@@ -53,6 +84,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     letterSpacing: -0.5,
     fontStyle: "normal",
+    fontWeight: "600",
   },
 });
 

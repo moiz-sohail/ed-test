@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, SafeAreaView } from "react-native";
+import { StyleSheet, Text, SafeAreaView, ScrollView } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import useSWRInfinite from "swr";
+import CarouselCards from "../components/Carousel";
 
 const eduBaseUrl = "https://www.educative.io";
 
@@ -26,15 +27,27 @@ const fetcher = (url: string) => {
   return fetch(eduBaseUrl + url).then((r) => r.json());
 };
 
-const LearnPage = () => {
-  // const result = useSWRInfinite(freeCoursesURL.endpoint, fetcher);
+// const result = useSWRInfinite(freeCoursesURL.endpoint, fetcher);
 
   // const { data, error } = result;
   // console.log(data);
 
+
+const LearnPage = () => {
   return (
     <SafeAreaView style={tw`bg-white w-full h-full`}>
-      <Text style={tw`p-4 text-blue-500`}> This is Learn Page </Text>
+      <ScrollView>
+        <Text style={tw`p-5 font-bold text-lg text-black`}>Our Picks</Text>
+        <CarouselCards />
+        <Text style={tw`p-5 font-bold text-lg text-black`}>Free Courses</Text>
+        <CarouselCards />
+        <Text style={tw`p-5 font-bold text-lg text-black`}>
+          Latest Additions
+        </Text>
+        <CarouselCards />
+        <Text style={tw`p-5 font-bold text-lg text-black`}>Learning Paths</Text>
+        <CarouselCards />
+      </ScrollView>
     </SafeAreaView>
   );
 };

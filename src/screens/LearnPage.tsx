@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, SafeAreaView, ScrollView, View } from "react-native";
+import { Text, SafeAreaView, ScrollView, View } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import CarouselCards from "../components/Carousel";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";

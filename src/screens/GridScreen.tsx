@@ -10,7 +10,6 @@ const fetcher = (url: string) => fetch(eduBaseUrl + url).then((r) => r.json());
 
 const GridScreen = ({ route, navigation }: { route: any; navigation: any }) => {
   const { isPath, url } = route.params;
-  console.log("URL: " + url);
   const result = useSWRInfinity(url, fetcher);
   const { data, error } = result;
 
@@ -31,6 +30,7 @@ const styles = StyleSheet.create({
   gridView: {
     marginTop: 10,
     flex: 1,
+    backgroundColor: "white",
   },
   itemContainer: {
     justifyContent: "flex-end",

@@ -1,24 +1,26 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { ColorValue } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import LearnPage from "../screens/LearnPage";
 import React from "react";
+import LearnStackScreen from "../screens/LearnPageStackScreen";
 
 const Tab = createBottomTabNavigator();
 
 const NavTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="Learn Page"
       screenOptions={{
         tabBarActiveTintColor: "#5553FF",
         headerShown: false,
       }}
     >
       <Tab.Screen
-        name="Feed"
-        component={LearnPage}
+        name="Learn Stack Screen"
+        component={LearnStackScreen}
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({
@@ -37,8 +39,8 @@ const NavTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Notifications"
-        component={LearnPage}
+        name="Explore Stack Screen"
+        component={LearnStackScreen}
         options={{
           tabBarLabel: "Explore",
           tabBarIcon: ({

@@ -32,7 +32,7 @@ const learnPageUrls: Array<{
   },
 ];
 
-const LearnPage = () => {
+const LearnPage = ({ route, navigation }: { route: any; navigation: any }) => {
   return (
     <SafeAreaView style={tw`bg-white w-full h-full`}>
       <ScrollView>
@@ -60,9 +60,24 @@ const LearnPage = () => {
                     />
                   )}
                 </View>
-                <Text style={tw`pl-2 font-bold text-lg text-black`}>
-                  {value.heading}
-                </Text>
+                <View style={tw`flex-row justify-between`}>
+                  <Text style={tw`pl-2 font-bold text-lg text-black`}>
+                    {value.heading}
+                  </Text>
+                  {value.heading == "Learning Paths" && (
+                    <Text
+                      style={tw`text-lg text-purple-600 self-end`}
+                      onPress={() =>
+                        navigation.navigate("Grid Page", {
+                          isPath: true,
+                          url: value.endpoint,
+                        })
+                      }
+                    >
+                      See All
+                    </Text>
+                  )}
+                </View>
               </View>
               <CarouselCards
                 url={value.endpoint}
